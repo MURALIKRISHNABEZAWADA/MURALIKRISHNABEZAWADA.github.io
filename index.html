@@ -1,190 +1,202 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Murali Krishna Bezawada | Data Scientist</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin:0;
-  font-family:'Inter', sans-serif;
-  background:#0f172a;
-  color:#e2e8f0;
+.badge-dot{
+  width:6px;height:6px;background:var(--gold);border-radius:50%;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{opacity:1;}
+  50%{opacity:0.4;}
+  100%{opacity:1;}
 }
 
-.container {
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
+.hero-title{
+  font-family:'Syne',sans-serif;
+  font-size:56px;font-weight:700;line-height:1.1;margin-bottom:20px;
+}
+.hero-title span{color:var(--gold);}
+
+.hero-sub{
+  font-size:16px;color:var(--muted);line-height:1.7;
+  max-width:520px;margin-bottom:30px;
 }
 
-h1 { font-size:42px; margin-bottom:10px; }
-h2 { margin-top:50px; margin-bottom:20px; }
-p { color:#94a3b8; }
+/* STATS */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px;
+}
+.stat{
+  padding:16px;border:1px solid var(--border);border-radius:10px;
+  background:var(--card);
+  text-align:center;
+}
+.stat h3{color:var(--gold);font-size:22px;}
+.stat p{font-size:12px;color:var(--muted);}
 
-.btn {
-  display:inline-block;
-  padding:10px 18px;
-  border:1px solid #facc15;
-  color:#facc15;
+/* SECTION */
+.section{
+  max-width:1100px;margin:0 auto;padding:80px 48px;
+}
+.section h2{
+  font-size:28px;margin-bottom:30px;
+}
+
+/* CARDS */
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--card);
+  padding:20px;border-radius:12px;
+  border:1px solid var(--border);
+  transition:all 0.3s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--border2);
+}
+.card h3{margin-bottom:10px;}
+.card p{font-size:14px;color:var(--muted);}
+
+/* CONTACT */
+.contact{
+  text-align:center;
+}
+.contact a{
+  display:block;
+  color:var(--gold);
+  margin:6px 0;
   text-decoration:none;
-  margin-right:10px;
-  margin-top:10px;
 }
-.btn:hover {
-  background:#facc15;
-  color:black;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-
-.card {
-  border:1px solid #334155;
-  padding:20px;
-  border-radius:8px;
-}
-
-.highlight { color:#facc15; }
-
-.contact a {
-  color:#facc15;
-  text-decoration:none;
-}
-
-.nav {
-  display:flex;
-  justify-content:space-between;
-  padding:20px;
-  border-bottom:1px solid #334155;
-}
-
-.nav a {
-  margin-left:15px;
-  text-decoration:none;
-  color:#94a3b8;
-}
-
-.nav a:hover { color:#facc15; }
-
 </style>
 </head>
 
 <body>
 
 <!-- NAV -->
-<div class="nav">
-  <div><b>Murali Krishna</b></div>
-  <div>
+<nav id="nav">
+  <div class="nav-logo">Murali<span>.</span></div>
+  <div class="nav-links">
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </div>
-</div>
-
-<div class="container">
+  <div class="nav-actions">
+    <a href="assets/Murali_Krishna_Bezawada_Resume.pdf" download class="btn-resume-icon">
+      ⬇
+    </a>
+    <button class="btn-contact" onclick="scrollToContact()">Contact</button>
+  </div>
+</nav>
 
 <!-- HERO -->
-<h1>Murali Krishna <span class="highlight">Bezawada</span></h1>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
 
-<p>
-Data Scientist with strong experience in Machine Learning, Healthcare Analytics, and Financial Modeling.
-Built scalable ML systems that improved accuracy, reduced risk, and enhanced business decisions.
-</p>
+  <div class="hero-inner">
 
-<a href="assets/Murali_Krishna_Bezawada_Resume.pdf" class="btn" download>Download Resume</a>
-<a href="mailto:muralibezawada10@gmail.com" class="btn">Email Me</a>
+    <div>
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        Available for Opportunities
+      </div>
 
-<!-- ACHIEVEMENTS -->
-<h2>Key Achievements</h2>
+      <div class="hero-title">
+        Murali Krishna <span>Bezawada</span>
+      </div>
 
-<div class="grid">
-  <div class="card"><h3 class="highlight">20%</h3><p>Claims Accuracy Improvement</p></div>
-  <div class="card"><h3 class="highlight">15%</h3><p>Fraud Detection Improvement</p></div>
-  <div class="card"><h3 class="highlight">50%</h3><p>Default Rate Reduction</p></div>
-  <div class="card"><h3 class="highlight">60%</h3><p>Customer Engagement Increase</p></div>
-</div>
+      <p class="hero-sub">
+        Data Scientist specializing in Machine Learning, Healthcare Analytics,
+        and Financial Modeling. Built scalable ML systems improving accuracy,
+        reducing risk, and driving business impact.
+      </p>
+
+      <div class="stats">
+        <div class="stat"><h3>20%</h3><p>Accuracy ↑</p></div>
+        <div class="stat"><h3>15%</h3><p>Fraud ↑</p></div>
+        <div class="stat"><h3>50%</h3><p>Risk ↓</p></div>
+        <div class="stat"><h3>60%</h3><p>Engagement ↑</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- EXPERIENCE -->
-<h2 id="experience">Experience</h2>
+<section class="section" id="experience">
+  <h2>Experience</h2>
 
-<div class="card">
-  <h3>Elevance Health</h3>
-  <p class="highlight">Data Scientist | 2025 - Present</p>
-  <ul>
-    <li>Improved diagnostic accuracy by 10% using deep learning</li>
-    <li>Enhanced fraud detection accuracy by 15%</li>
-    <li>Reduced delinquency rates from 5% to 2%</li>
-    <li>Built scalable ML pipelines across AWS, Azure, and GCP</li>
-  </ul>
-</div>
+  <div class="grid">
+    <div class="card">
+      <h3>Elevance Health</h3>
+      <p>Improved diagnostic accuracy by 10% using deep learning. Enhanced fraud detection by 15%.</p>
+    </div>
 
-<div class="card">
-  <h3>Athenahealth</h3>
-  <p class="highlight">Data Scientist | 2024 - 2025</p>
-  <ul>
-    <li>Improved claims classification accuracy by 20%</li>
-    <li>Developed forecasting models (ARIMA)</li>
-    <li>Built NLP models for healthcare data</li>
-  </ul>
-</div>
+    <div class="card">
+      <h3>Athenahealth</h3>
+      <p>Improved claims classification accuracy by 20% using ML models and forecasting.</p>
+    </div>
 
-<div class="card">
-  <h3>American Express</h3>
-  <p class="highlight">Data Scientist</p>
-  <ul>
-    <li>Reduced default rates from 6% to 3%</li>
-    <li>Improved customer engagement by 60%</li>
-  </ul>
-</div>
+    <div class="card">
+      <h3>American Express</h3>
+      <p>Reduced default rates from 6% to 3% using predictive modeling.</p>
+    </div>
+  </div>
+</section>
 
 <!-- PROJECTS -->
-<h2 id="projects">Projects</h2>
+<section class="section" id="projects">
+  <h2>Projects</h2>
 
-<div class="grid">
-  <div class="card">
-    <h3>Fraud Detection System</h3>
-    <p>Machine learning system improving fraud detection by 15%</p>
-  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Fraud Detection</h3>
+      <p>ML system improving fraud detection accuracy by 15%</p>
+    </div>
 
-  <div class="card">
-    <h3>Healthcare Risk Model</h3>
-    <p>Predictive model for patient risk and cost optimization</p>
-  </div>
+    <div class="card">
+      <h3>Risk Modeling</h3>
+      <p>Healthcare predictive system for cost optimization</p>
+    </div>
 
-  <div class="card">
-    <h3>Forecasting Engine</h3>
-    <p>Time-series forecasting using ARIMA models</p>
+    <div class="card">
+      <h3>Forecasting Engine</h3>
+      <p>Time-series models using ARIMA</p>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- SKILLS -->
-<h2 id="skills">Skills</h2>
+<section class="section" id="skills">
+  <h2>Skills</h2>
 
-<div class="grid">
-  <div class="card"><b>Machine Learning</b><br>Random Forest, XGBoost, SVM</div>
-  <div class="card"><b>Programming</b><br>Python, SQL, R, Java</div>
-  <div class="card"><b>Cloud</b><br>AWS, Azure, GCP</div>
-</div>
+  <div class="grid">
+    <div class="card"><h3>Machine Learning</h3><p>Random Forest, XGBoost, SVM</p></div>
+    <div class="card"><h3>Languages</h3><p>Python, SQL, R, Java</p></div>
+    <div class="card"><h3>Cloud</h3><p>AWS, Azure, GCP</p></div>
+  </div>
+</section>
 
 <!-- CONTACT -->
-<h2 id="contact">Contact</h2>
+<section class="section contact" id="contact">
+  <h2>Contact</h2>
 
-<div class="contact">
-  <p>Email: <a href="mailto:muralibezawada10@gmail.com">muralibezawada10@gmail.com</a></p>
-  <p>Phone: <a href="tel:4143346234">+1 414-334-6234</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/murali-krishna-bezawada-a39b46206" target="_blank">View Profile</a></p>
-  <p>GitHub: <a href="https://github.com/MURALIKRISHNABEZAWADA" target="_blank">View Projects</a></p>
-</div>
+  <a href="mailto:muralibezawada10@gmail.com">muralibezawada10@gmail.com</a>
+  <a href="tel:4143346234">+1 414-334-6234</a>
+  <a href="https://linkedin.com/in/murali-krishna-bezawada-a39b46206" target="_blank">LinkedIn</a>
+  <a href="https://github.com/MURALIKRISHNABEZAWADA" target="_blank">GitHub</a>
+</section>
 
-</div>
+<script>
+function scrollToContact(){
+  document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+}
+
+window.addEventListener("scroll",()=>{
+  document.getElementById("nav").classList.toggle("scrolled",window.scrollY>50);
+});
+</script>
 
 </body>
 </html>
