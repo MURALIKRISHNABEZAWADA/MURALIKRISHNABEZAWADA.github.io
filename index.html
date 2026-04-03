@@ -732,9 +732,9 @@ footer{
           Open to Data Scientist and ML Engineer roles. Based in Chicago, Illinois — available for remote, hybrid, or on-site opportunities.
         </p>
         <div class="contact-links">
-          <a href="mailto:muralibezawada01@gmail.com" class="contact-link">
+          <a href="/cdn-cgi/l/email-protection#80edf5f2e1ece9e2e5fae1f7e1e4e1b0b1c0e7ede1e9ecaee3efed" class="contact-link">
             <div class="cl-icon">✉️</div>
-            <div><div class="cl-label">Email</div><div class="cl-value">muralibezawada01@gmail.com</div></div>
+            <div><div class="cl-label">Email</div><div class="cl-value"><span class="__cf_email__" data-cfemail="cfa2babdaea3a6adaab5aeb8aeabaefffe8fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></div></div>
           </a>
           <a href="tel:4143346234" class="contact-link">
             <div class="cl-icon">📞</div>
@@ -777,13 +777,13 @@ footer{
   <div class="footer-copy">© 2025 Murali Krishna Bezawada · Chicago, Illinois</div>
   <div class="footer-links">
     <a href="#home">↑ Top</a>
-    <a href="mailto:muralibezawada01@gmail.com">Email</a>
+    <a href="/cdn-cgi/l/email-protection#d5b8a0a7b4b9bcb7b0afb4a2b4b1b4e5e495b2b8b4bcb9fbb6bab8">Email</a>
     <a href="https://linkedin.com/in/murali-krishna-bezawada-a39b46206" target="_blank">LinkedIn</a>
     <a href="https://github.com/MURALIKRISHNABEZAWADA" target="_blank">GitHub</a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Navbar scroll state
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
@@ -836,45 +836,72 @@ window.addEventListener('scroll', () => {
 </script>
 
 <!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-(function(){
-  emailjs.init("uVNW96QFqt5jkYXCz"); // Replace with your EmailJS public key
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+  // Wait for everything to load
+  window.addEventListener('DOMContentLoaded', function() {
+    
+    // Init EmailJS with public key
+    emailjs.init({
+      publicKey: "uVNW96QFqt5jkYXCz"
+    });
 
-  const btn = document.getElementById('send-btn');
-  const status = document.getElementById('form-status');
+    var btn = document.getElementById('send-btn');
+    var status = document.getElementById('form-status');
 
-  btn.addEventListener('click', function(){
-    const from_name = document.getElementById('from_name').value.trim();
-    const reply_to = document.getElementById('reply_to').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
+    btn.addEventListener('click', function() {
+      var from_name = document.getElementById('from_name').value.trim();
+      var reply_to = document.getElementById('reply_to').value.trim();
+      var subject  = document.getElementById('subject').value.trim();
+      var message  = document.getElementById('message').value.trim();
 
-    if(!from_name || !reply_to || !message){
-      status.style.display = 'block';
-      status.style.color = '#ef4444';
-      status.textContent = 'Please fill in all required fields.';
-      return;
-    }
+      // Validation
+      if (!from_name || !reply_to || !message) {
+        status.style.display = 'block';
+        status.style.color = '#ef4444';
+        status.textContent = 'Please fill in Name, Email, and Message.';
+        return;
+      }
 
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      status.style.display = 'none';
 
-    emailjs.send('service_hfsralw', 'template_f0bqvhv', {
-      from_name: from_name,
-      reply_to: reply_to,
-      subject: subject || '(No subject)',
-      message: message
-    })
-    .then(function(){
-      status.style.display = 'block';
-      status.style.color = 'var(--green)';
-      status.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
-      btn.textContent = 'Sent! ✓';
-      // Clear form
-      document.getElementById('from_name').value = '';
-      document.getElementById('reply_to').value = '';
-      document.getElementById('subject').value = '';
-      document.getElementById('message').value = '';
-      setTimeout(() => { btn.disabled = false; btn.textContent = 'Send Message →'; }, 4000);
-    }, function(erro
+      var templateParams = {
+        from_name: from_name,
+        reply_to: reply_to,
+        subject: subject || '(No subject)',
+        message: message
+      };
+
+      emailjs.send('service_hfsralw', 'template_f0bqvhv', templateParams)
+        .then(function(response) {
+          console.log('EmailJS SUCCESS:', response.status, response.text);
+          status.style.display = 'block';
+          status.style.color = '#22c55e';
+          status.textContent = '✅ Message sent successfully! I will get back to you soon.';
+          btn.textContent = 'Sent! ✓';
+          btn.style.background = '#22c55e';
+          // Clear form fields
+          document.getElementById('from_name').value = '';
+          document.getElementById('reply_to').value = '';
+          document.getElementById('subject').value = '';
+          document.getElementById('message').value = '';
+          setTimeout(function() {
+            btn.disabled = false;
+            btn.textContent = 'Send Message →';
+            btn.style.background = '';
+          }, 4000);
+        }, function(error) {
+          console.error('EmailJS FAILED:', error);
+          status.style.display = 'block';
+          status.style.color = '#ef4444';
+          status.textContent = '❌ Failed to send: ' + (error.text || 'Unknown error') + '. Please try again.';
+          btn.disabled = false;
+          btn.textContent = 'Send Message →';
+        });
+    });
+  });
+</script>
+</body>
+</html>
