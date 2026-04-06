@@ -839,7 +839,7 @@ window.addEventListener('scroll', () => {
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function(){
-  emailjs.init("uVNW96QFqt5jkYXCz"); // Replace with your EmailJS public key
+  emailjs.init("uVNW96QFqt5jkYXCz");
 
   const btn = document.getElementById('send-btn');
   const status = document.getElementById('form-status');
@@ -859,6 +859,7 @@ window.addEventListener('scroll', () => {
 
     btn.disabled = true;
     btn.textContent = 'Sending...';
+    status.style.display = 'none';
 
     emailjs.send('service_hfsralw', 'template_f0bqvhv', {
       from_name: from_name,
@@ -871,5 +872,22 @@ window.addEventListener('scroll', () => {
       status.style.color = 'var(--green)';
       status.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
       btn.textContent = 'Sent! ✓';
-      // Clear form
-      document.getElemen
+      btn.disabled = false;
+      document.getElementById('from_name').value = '';
+      document.getElementById('reply_to').value = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('message').value = '';
+    })
+    .catch(function(error){
+      status.style.display = 'block';
+      status.style.color = '#ef4444';
+      status.textContent = '❌ Failed to send. Please try again or email directly at muralibezawada01@gmail.com';
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      console.error('EmailJS error:', error);
+    });
+  });
+})();
+</script>
+</body>
+</html>
